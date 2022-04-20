@@ -50,14 +50,15 @@ for sentences in ad_descriptions:
     split_sentences = []
     for sub_list in sentence_arrays:
         for sentence in sub_list:
-            sentence = sentence.strip()
-            split_sentences.append(sentence.lower())
+            if not 'contact' in sentence:
+                sentence = sentence.strip()
+                split_sentences.append(sentence.lower())
     split_sents= ' '.join([sents for sents in split_sentences])
 
-for sents in split_sentences:
-    if check_pres(split_sentences, agentrelated_words):
-        split_sentences.remove(sents.lower())
-        print("the sentence removed is:", sents)
+#for sents in split_sentences:
+#    if check_pres(split_sentences, agentrelated_words):
+#        split_sentences.remove(sents.lower())
+#        print("the sentence removed is:", sents)
 
 ##_________________________________Delete Agency-Related Sentences (end)_____________________________##
 ''' 
