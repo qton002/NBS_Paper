@@ -1,0 +1,18 @@
+import pickle
+
+def csv_to_ad_descriptions(filename):
+    f = open(filename,"r",encoding="utf-8")
+    text = f.read()
+    return text
+
+cities = ['akl','wlg','chch']
+
+filenames = ['1_akl_test2.csv',
+             '2_wlg_test2.csv',
+             '3_chch_test2.csv']  
+
+ad_descriptions = [csv_to_ad_descriptions(ads) for ads in filenames]
+
+for i, c in enumerate(cities):
+    with open("1_" + c +"_test2.csv", "wb") as file:
+        pickle.dump(ad_descriptions[i],file)
